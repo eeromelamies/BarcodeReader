@@ -21,9 +21,9 @@ export default function App() {
     );
   }
   
-const handleBarcodeScanned = ({ data }: {data: string }) => {
+const handleBarcodeScanned = ({data}: {data: string }) => {
     setScanned(true); 
-    alert(`luettu! Sisältö: ${data}`);
+    alert(`luettu! Sisältö: ${data}`); 
   };
 
   return (
@@ -31,8 +31,8 @@ const handleBarcodeScanned = ({ data }: {data: string }) => {
       <CameraView style={styles.camera} barcodeScannerSettings={{
         barcodeTypes: ["ean13"], 
       }}
-      //onBarcodeScanned={scanned ? undefined : handleBarcodeScanned}/>
-      />
+      onBarcodeScanned={scanned ? undefined : handleBarcodeScanned}/>
+      
       <View style={styles.buttonContainer}>
         {scanned && (
           <TouchableOpacity 
@@ -42,7 +42,6 @@ const handleBarcodeScanned = ({ data }: {data: string }) => {
             <Text style={styles.text}>Lue uusi koodi</Text>
           </TouchableOpacity>
         )}
-      
       </View>
     </View>
   );
